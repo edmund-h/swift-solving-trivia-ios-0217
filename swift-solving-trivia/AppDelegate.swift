@@ -16,7 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func solveTrivia(_ trivia: [String : String]) -> String {
         
-        // Implement this function!
+        for (state, city) in trivia{
+            let stateLetters = Array(state.lowercased().characters)
+            let cityLetters = Array(city.lowercased().characters)
+            var hasSameLetters = true
+            for thisLetter in stateLetters {
+                
+                for thatLetter in cityLetters{
+                    hasSameLetters =  (thisLetter == thatLetter )
+                    if hasSameLetters { break }
+                }
+                if hasSameLetters { break }
+            }
+            if hasSameLetters == false {
+                return state
+            }
+        }
+        
         
         return "Hi :D"
         
